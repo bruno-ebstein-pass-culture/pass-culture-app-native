@@ -21,11 +21,13 @@
         let
           pkgs = import nixpkgs {
             inherit system;
+            config.allowUnfree = true;
             overlays = [
               brew-nix.overlays.default
             ];
           };
           brewPackages = [
+            pkgs.brewCasks.android-studio
             pkgs.brewCasks.firefox
           ];
         in
