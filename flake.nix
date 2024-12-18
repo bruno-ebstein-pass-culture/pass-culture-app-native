@@ -9,11 +9,14 @@
   inputs.brew-nix.inputs.nixpkgs.follows = "nixpkgs";
   inputs.brew-nix.inputs.flake-utils.follows = "flake-utils";
 
+  inputs.mac-app-util.url = "github:hraban/mac-app-util";
+
   outputs =
     { self
     , nixpkgs
     , flake-utils
     , brew-nix
+    , mac-app-util
     , ...
     }:
     flake-utils.lib.eachDefaultSystem (system: {
@@ -30,6 +33,15 @@
             pkgs.brewCasks.android-studio
             pkgs.brewCasks.firefox
           ];
+          macAppUtil = pkgs.lib.getExe' mac-app-util.packages."${system}".default "mac-app-util";
+          brewApplications = pkgs.runCommand "brewApplications" { } ''
+            mkdir --parents $out
+            for APP in ${builtins.concatStringsSep " " brewPackages}; do
+              if [ -e $APP/Applications ]; then
+                ln --symbolic $APP/Applications/* $out
+              fi
+            done
+          '';
         in
         pkgs.mkShellNoCC {
           packages = [
@@ -39,6 +51,13 @@
           (pkgs.lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
             brewPackages
           ]);
+
+          shellHook = ''
+            # make apps available in the launcher and up to date in the dock
+            if [ "$(${pkgs.lib.getExe' pkgs.coreutils "uname"})" == "Darwin" ]; then
+              ${macAppUtil} sync-trampolines ${brewApplications} ~/Applications/pass-culture-app-native/
+            fi
+          '';
         };
     });
 }
