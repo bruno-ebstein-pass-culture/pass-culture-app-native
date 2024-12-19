@@ -156,6 +156,26 @@
         "type": "github"
       }
     },
+    "nixcasks": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1734557962,
+        "narHash": "sha256-c+Nx1LiocZxY5UIcgq6AZeFwTjR6XMcM9b0XOJlL91w=",
+        "owner": "jacekszymanski",
+        "repo": "nixcasks",
+        "rev": "9f02ecba657e6e3976e2a2d7b6e1be789e2bd08e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jacekszymanski",
+        "repo": "nixcasks",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1732617236,
@@ -194,6 +214,7 @@
         "brew-nix": "brew-nix",
         "flake-utils": "flake-utils",
         "mac-app-util": "mac-app-util",
+        "nixcasks": "nixcasks",
         "nixpkgs": "nixpkgs_2"
       }
     },
