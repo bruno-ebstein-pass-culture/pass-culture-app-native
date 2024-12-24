@@ -122,11 +122,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1734989476,
-        "narHash": "sha256-//xov5yU3Y30qRUSK9OADl8tD9NDU7Z/T+4YdPRqNNA=",
+        "lastModified": 1734997700,
+        "narHash": "sha256-oMsoM5UOMrqVERUVlGrbZLVoLGX7grhwAYhDXoLkOkc=",
         "owner": "pinage404",
         "repo": "mac-app-util",
-        "rev": "e18d0bb7e7fc9cd404275de355cfc35e9191a26f",
+        "rev": "dee1af556ce932c148c365e33b7ff72c64528621",
         "type": "github"
       },
       "original": {

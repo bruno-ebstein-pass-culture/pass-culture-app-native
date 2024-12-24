@@ -87,12 +87,18 @@
           # '';
           shellHook = ''
             # make apps available in the launcher and up to date in the dock
-            ls -l ${brewApplications}
-
-            if [ "$(${pkgs.lib.getExe' pkgs.coreutils "uname"})" == "Darwin" ]; then
-              ${macAppUtil} sync-trampolines ${brewApplications} ~/Applications/pass-culture-app-native/
-            fi
+            ${pkgs.lib.getExe mac-app-util.packages."${system}".shellHook} \
+              ${mac-app-util.lib.assembleBrewAppsInOneFolder { inherit pkgs brewPackages; }} \
+              "Nix_Flake_pass-culture-app-native"
           '';
+          # shellHook = ''
+          #   # make apps available in the launcher and up to date in the dock
+          #   ls -l ${brewApplications}
+
+          #   if [ "$(${pkgs.lib.getExe' pkgs.coreutils "uname"})" == "Darwin" ]; then
+          #     ${macAppUtil} sync-trampolines ${brewApplications} ~/Applications/pass-culture-app-native/
+          #   fi
+          # '';
         };
     });
 }
