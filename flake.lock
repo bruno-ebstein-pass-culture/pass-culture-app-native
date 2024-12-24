@@ -122,15 +122,16 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1732920695,
-        "narHash": "sha256-1fxvJZUznwrmEtYqpPuWi2tPcL9kj6v7p1J7ZZncAPE=",
-        "owner": "hraban",
+        "lastModified": 1734989476,
+        "narHash": "sha256-//xov5yU3Y30qRUSK9OADl8tD9NDU7Z/T+4YdPRqNNA=",
+        "owner": "pinage404",
         "repo": "mac-app-util",
-        "rev": "548672d0cb661ce11d08ee8bde92b87d2a75c872",
+        "rev": "e18d0bb7e7fc9cd404275de355cfc35e9191a26f",
         "type": "github"
       },
       "original": {
-        "owner": "hraban",
+        "owner": "pinage404",
+        "ref": "flake_shell_hook",
         "repo": "mac-app-util",
         "type": "github"
       }

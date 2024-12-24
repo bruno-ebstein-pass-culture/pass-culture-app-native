@@ -13,7 +13,8 @@
   inputs.nixcasks.inputs.nixpkgs.follows = "nixpkgs";
 
 
-  inputs.mac-app-util.url = "github:hraban/mac-app-util";
+  # inputs.mac-app-util.url = "github:hraban/mac-app-util";
+  inputs.mac-app-util.url = "github:pinage404/mac-app-util/flake_shell_hook";
 
   outputs =
     { self
@@ -78,13 +79,21 @@
           ]);
 
           # shellHook = ''
-          #   # make apps available in the launcher and up to date in the dock
-          #   ls -l ${brewApplications}
-
-          #   if [ "$(${pkgs.lib.getExe' pkgs.coreutils "uname"})" == "Darwin" ]; then
-          #     ${macAppUtil} sync-trampolines ${brewApplications} ~/Applications/pass-culture-app-native/
-          #   fi
+          #   ${mac-app-util.lib.shellHook {
+          #     inherit pkgs brewPackages;
+          #     target = "Nix_Flake_pass-culture-app-native";
+          #     # target = "~/Applications/Nix_Flake_pass-culture-app-native";
+          #   }}
           # '';
+          shellHook = ''
+            # make apps available in the launcher and up to date in the dock
+            ls -l ${brewApplications}
+
+            if [ "$(${pkgs.lib.getExe' pkgs.coreutils "uname"})" == "Darwin" ]; then
+              ${macAppUtil} sync-trampolines ${brewApplications} ~/Applications/pass-culture-app-native/
+            fi
+          '';
         };
     });
 }
+
