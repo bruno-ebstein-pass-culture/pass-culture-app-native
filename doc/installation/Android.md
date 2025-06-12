@@ -74,7 +74,9 @@ yarn start
 
 ### Emulator
 
-#### Download Android image
+#### Old Android Studio
+
+##### Download Android image
 
 1. Open Android Studio
 1. Open settings
@@ -95,7 +97,7 @@ yarn start
 
 1. Click on "OK", this will download stuff
 
-#### Create an emulator
+##### Create an emulator
 
 1. Open Android Studio
 1. Open Device Manager
@@ -106,6 +108,25 @@ yarn start
 
 If you have a pass Culture's computer, which has a proxy that adds a custom certificate.
 
+1. Start your emulator at least once
+1. Stop your emulator
+1. Run in a terminal
+
+   ```sh
+   yarn android:testing
+   ```
+
+#### New Android Studio
+
+##### Create an emulator
+
+1. Open Android Studio
+1. Open Device Manager
+1. Click on "Add a new device"
+1. Click on "Create Virtual Device"
+1. In the "API" dropdown, select any [version supported](../../android/build.gradle)
+1. In the "Services" dropdown, select "Google APIs"
+1. Click on "Finish", this may download stuff and create the emulator
 1. Start your emulator at least once
 1. Stop your emulator
 1. Run in a terminal

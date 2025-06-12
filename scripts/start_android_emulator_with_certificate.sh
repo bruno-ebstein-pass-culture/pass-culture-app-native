@@ -15,6 +15,7 @@ choose_an_emulator() {
 
 start_android_emulator() {
 	emulator \
+		-memory 2048 \
 		-avd "$ANDROID_SERIAL" \
 		-writable-system # this allow to send certificate
 }

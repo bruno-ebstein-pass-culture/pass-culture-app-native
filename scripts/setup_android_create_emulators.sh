@@ -75,15 +75,16 @@ recreate_emulator() {
 	install_platforms_and_image "$SDK_VERSION"
 
 	avdmanager create avd \
-		--name "$EMULATOR_NAME" \
-		--package "$(image_for_sdk "$SDK_VERSION")" \
-		--device "$DEVICE" \
-		--force
+	 --help
+	# 	--name "$EMULATOR_NAME" \
+	# 	--package "$(image_for_sdk "$SDK_VERSION")" \
+	# 	--device "$DEVICE" \
+	# 	--force
 
-	emulator \
-		-avd "$EMULATOR_NAME" \
-		>/dev/null \
-		&
+	# emulator \
+	# 	-avd "$EMULATOR_NAME" \
+	# 	>/dev/null \
+	# 	&
 }
 
 mkdir --parents "$(dirname "$ANDROID_HOME")"
