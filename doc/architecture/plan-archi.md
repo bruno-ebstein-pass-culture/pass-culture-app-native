@@ -196,7 +196,7 @@ Toutes les étapes sont citées dans un ordre de faisabilité préférentielle, 
 
 - règle de persistance de requêtes (firebase, remoteConfig, user, token)
 - uniformisation du cache RQ et persistance
-- hydratation du server et app state au launch de l’app (ex placehoder data vs initial query data)
+- hydratation du server et app state au launch de l’app (ex placeholder data vs initial query data)
 - Suppression des Contexts
 - Identification des contexts importants: lors de cette étape, on identifie quels sont les Contexts qui sont les plus importants dans l’app: état d’authentification, localisation, snackbar, accessibility …
 - challenge de la nécessité d’utiliser les Contexts
